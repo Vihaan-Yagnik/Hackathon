@@ -1,0 +1,27 @@
+body, html {
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  aside {
+      height: 100%;
+  }
+}
+
+img{
+  width:70px;
+  height:70px;
+}
+
+.back{
+  background-color: rgb(255,255,0,0.1) !important;
+}
+
+.menu{
+
+}
+
+.menu:hover{
+	color: #ff4457 !important;
+	transition: all 0.3s ease 0s;
+	}

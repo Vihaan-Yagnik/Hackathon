@@ -1,0 +1,14 @@
+.title{
+    font-size: xx-large;
+    font-weight: 400;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.content{
+    font-size: larger;
+    word-spacing: 10px;
+    text-align: justify;
+}
+.loc{
+    width: 600;
+}

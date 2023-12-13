@@ -1,0 +1,56 @@
+<!-- <div class="my-container"></div> -->
+<div class="container ">
+
+    <div class="dashboard" cdkDropListGroup>
+        <div class="col" cdkDropList [cdkDropListData]="toDos" style="min-height:500px;" (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="entered($event,0)" >
+            <div class="task-header">
+                To DO
+            </div><hr>
+            <div class="task-card" *ngFor="let task of toDos" cdkDrag>
+                <h3>{{task.taskName}}</h3>
+                <p>{{task.desc}}</p>
+            </div>
+            
+            <div class="create">
+                <div  (click)="taskForm()" style="color: black; text-decoration: none;">
+                    + create
+                </div>    
+            </div>
+        </div>
+        <div class="col" cdkDropList [cdkDropListData]="inProgress" style="min-height:500px;" (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="entered($event,1)"  >
+            <div class="task-header">
+                In Progress
+            </div><hr>
+            <div class="task-card" *ngFor="let task of inProgress" cdkDrag>
+                <h3>{{task.taskName}}</h3>
+                <p>{{task.desc}}</p>
+            </div>
+        </div>
+        <div class="col" cdkDropList [cdkDropListData]="inReview" style="min-height:500px;" (cdkDropListDropped)="drop($event)"  (cdkDropListEntered)="entered($event,2)">
+            <div class="task-header">
+                Review
+            </div><hr>
+            <div class="task-card" *ngFor="let task of inReview" cdkDrag>
+                <h3>{{task.taskName}}</h3>
+                <p>{{task.desc}}</p>
+            </div>
+        </div>
+        <div class="col" cdkDropList [cdkDropListData]="completed" style="min-height:500px;" (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="entered($event,3)"  >
+            <div class="task-header">
+                Completed
+            </div><hr>
+            <div class="task-card" *ngFor="let task of completed" cdkDrag>
+                <h3>{{task.taskName}}</h3>
+                <p>{{task.desc}}</p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isNewTask" class="add-form">
+          <form class="form">
+            <h1>Task Details</h1>
+            <input type="text" [(ngModel)]="taskName" placeholder="Taskname" name="asdf" />
+            <input type="text" [(ngModel)]="taskDescription" placeholder="Description" name="asdf" />
+            <button class="btn" (click)="saveTask()">Save</button>
+        </form>
+    </div>
+</div>
