@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { ApiProjectJenishService } from '../api-project-jenish.service';
 import { ApiTaskJenishService } from '../api-task-jenish.service';
 import { CookieService } from 'ngx-cookie-service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +15,9 @@ import { CookieService } from 'ngx-cookie-service';
 
 export class HomeComponent {
     constructor(private _apiProject : ApiProjectJenishService, private _apiTask:ApiTaskJenishService, private _cookie:CookieService ){}
-
+    user : any = {}
     ngOnInit(){
+      this.user = JSON.parse(this._cookie.get('user'))
       this._apiProject.getById(1).subscribe((res:any)=>{
         console.log(res);
         this.toDos = res.allTasks.filter((task:any) => task.stage === "toDos")
@@ -51,11 +53,11 @@ export class HomeComponent {
 
     drop(event: CdkDragDrop<any>){
       
-        console.log(this._cookie.get('user.userName'))
-      
       if (event.previousContainer === event.container) {
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-      } else {
+      } else if(this.user.userName === "Jenish" && this.updateTaskData.stage === "completed") {
+        Swal.fire("Just eat 5 star. Do Nothing")
+      }else{
         this.updateTaskData._id = event.previousContainer.data[event.previousIndex]._id
         console.log(event.previousContainer.data[event.previousIndex])
         transferArrayItem(

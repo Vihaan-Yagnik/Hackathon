@@ -16,7 +16,7 @@ export class MenuComponent {
   img : any = ""
 
   ngOnInit(){
-    this.usernames = this.storedObject._doc.userName
-    this.img = this.storedObject._doc.img
+    this.usernames = this.storedObject.userName
+    this.img = this.storedObject.img
   }
 }

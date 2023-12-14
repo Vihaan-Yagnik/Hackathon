@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiTaskJenishService {
-  apiUrl = 'http://192.168.29.215:3300/task/'
+  apiUrl = 'http://127.0.0.1:3300/task/'
   constructor(private _http: HttpClient) { }
 
   create(data:any){

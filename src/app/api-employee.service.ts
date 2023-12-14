@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiEmployeeService {
-  empUrl = 'http://192.168.29.215:3300/employee'
-  projUrl = 'http://192.168.29.215:3300/project'
+  empUrl = 'http://127.0.0.1:3300/employee'
+  projUrl = 'http://127.0.0.1:3300/project'
   constructor(private _http:HttpClient){}  
   
   getAll(){

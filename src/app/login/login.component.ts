@@ -17,7 +17,8 @@ export class LoginComponent {
   submit(){
     this._api.post(this.person).subscribe((res:any)=>{
       // res=res.json()
-      if(res.status==201){
+      console.log(res)
+      if(res.status!=404){
         this._cookie.set("user",JSON.stringify(res),1)
         this._router.navigateByUrl("/home")
         console.log(res)
